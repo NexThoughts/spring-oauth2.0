@@ -1,0 +1,12 @@
+.custom-table-heading {
+    background: radial-gradient(at 0% 50%, #F7F7F7 15%, #EFEFF0 50%, #E0E1E2 100%);
+
+}
+
+.border {
+    border-bottom: 2px solid #EBEBEB;
+    border-left: 2px solid #EBEBEB;
+    border-right: 2px solid #EBEBEB;
+
+}
+

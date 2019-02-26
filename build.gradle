@@ -1,0 +1,41 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.2.RELEASE'
+	id 'groovy'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.buzzbuilder'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+
+	dependencies {
+		compile group: 'javax.xml.bind', name: 'jaxb-api', version:'2.3.1'
+		compile group: 'javax.activation', name: 'activation', version:'1.1'
+		compile group: 'org.glassfish.jaxb', name: 'jaxb-runtime', version:'2.3.1'
+		compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version:'2.0.6.RELEASE'
+		compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version:'2.0.6.RELEASE'
+		compile group: 'org.springframework.security', name: 'spring-security-jwt', version:'1.0.9.RELEASE'
+		compile group: 'org.springframework.security.oauth.boot', name: 'spring-security-oauth2-autoconfigure', version:'2.1.0.RELEASE'
+		compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis', version:'2.0.6.RELEASE'
+		compile group: 'org.projectlombok', name: 'lombok', version:'1.16.22'
+		compile group: 'org.springframework.boot', name: 'spring-boot-configuration-processor', version:'2.0.6.RELEASE'
+		compile group: 'com.baomidou', name: 'mybatis-plus-boot-starter', version:'3.0.4'
+		compile group: 'com.alibaba', name: 'druid', version:'1.1.11'
+		compile group: 'io.springfox', name: 'springfox-swagger2', version:'2.9.2'
+		compile group: 'io.springfox', name: 'springfox-swagger-ui', version:'2.9.2'
+		compile group: 'org.hibernate', name: 'hibernate-validator', version:'6.0.13.Final'
+		compile group: 'org.apache.commons', name: 'commons-lang3', version:'3.7'
+		compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version:'2.0.6.RELEASE'
+		runtime group: 'org.springframework.boot', name: 'spring-boot-devtools', version:'2.0.6.RELEASE'
+		runtime group: 'mysql', name: 'mysql-connector-java', version:'5.1.47'
+		testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version:'2.0.6.RELEASE'
+		implementation 'org.codehaus.groovy:groovy'
+
+	}
+

@@ -1,0 +1,160 @@
+<!--<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Authorization</title>
+</head>
+<style>
+
+    html {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .title {
+        background-color: #E9686B;
+        height: 50px;
+        padding-left: 20%;
+        padding-right: 20%;
+        color: white;
+        line-height: 50px;
+        font-size: 18px;
+    }
+
+    .title-left {
+        float: right;
+    }
+
+    .title-right {
+        float: left;
+    }
+
+    .title-left a {
+        color: white;
+    }
+
+    .container {
+        clear: both;
+        text-align: center;
+    }
+
+    .btn {
+        width: 350px;
+        height: 35px;
+        line-height: 35px;
+        cursor: pointer;
+        margin-top: 20px;
+        border-radius: 3px;
+        background-color: #E9686B;
+        color: white;
+        border: none;
+        font-size: 15px;
+    }
+</style>
+<body style="margin: 0px">
+
+
+
+&lt;!&ndash;<form method="post" th:action="@{/oauth/authorize}">
+    <input type="hidden" name="user_oauth_approval" value="true">
+    <input type="hidden" name="_csrf" th:value="${_csrf.getToken()}"/>
+    <div class="form-check">
+        <input type="checkbox" class="form-check-input" checked="checked" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">昵称,身份和头像</label>
+    </div>
+    <div th:each="item:${scopes}">
+        <input type="radio" th:name="'scope.'+${item}" value="true" hidden="hidden" checked="checked">
+    </div>
+    <p class="card-text" style="color: #dc3545;font-size: 12px">授权后表表明您已同意Oauth2协议</p>
+    <button type="submit" class="btn btn-outline-danger">同意授权</button>
+</form>&ndash;&gt;
+
+
+</body>
+</html>-->
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]>
+<html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>
+<html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>
+<html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>
+<html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>BuzzBuilder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--<link rel="stylesheet" href="css/bootstrap.css"/>-->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+    <link href="/css/animate.css" rel="stylesheet">
+
+
+    <link rel="shortcut icon" href="/ico/favicon.ico" type="image/x-icon">
+    <!--<link rel="apple-touch-icon" href="${assetPath(src: 'apple-touch-icon.png')}">-->
+    <!--<link rel="apple-touch-icon" sizes="114x114" href="${assetPath(src: 'apple-touch-icon-retina.png')}">-->
+
+    <!--<link href="${resource(dir: 'css', file: 'bootstrap.min.css')}" rel="stylesheet">-->
+    <!--<link href="${resource(dir: 'font-awesome/css', file: 'font-awesome.min.css')}" rel="stylesheet">-->
+
+    <!--<link href="${resource(dir: 'css', file: 'style.css')}" rel="stylesheet">-->
+    <style>
+        .error {
+            color: rgba(253, 0, 40, 0.96);
+        }
+    </style>
+</head>
+
+<body style="background:radial-gradient(at 50% 20%, #F7F7F7 10%, #EFEFF0 50%, #E0E1E2 100%)">
+
+<div class="middle-box text-center loginscreen animated fadeInDown">
+
+    <h1 class="logo-name"><img width="100%" src="/img/backgrounds/logo.png"
+                               th:src="@{/img/backgrounds/logo.png}"/>
+    </h1>
+
+
+    <!--<h3>Welcome to buzzbuilder</h3>-->
+
+        <!--    <h3 th:text="Request authorization, the app will get your information below"></h3>-->
+            <h3>Request authorization, the app will get your information below</h3>
+
+            <p>nickname, avatar and gender</p>
+
+            Authorization indicates that you have agreed to the <a href="#boot" style="color: #E9686B">BuzzBuilder
+        Service Agreement</a>
+
+            
+        <form method="post" action="/oauth/authorize">
+
+                    <input type="hidden" name="user_oauth_approval" value="true">
+                    <input type="hidden" name="_csrf" th:value="${_csrf.getToken()}"/>
+            <div th:each="item:${scopes}">
+                <input type="radio" th:name="'scope.'+${item}" value="true" hidden="hidden" checked="checked"/>
+                  <h3 th:text="'scope.'+${item}"></h3>
+            </div>
+                    
+            <button type="submit"
+                    class="btn btn-primary block full-width m-b"> Agree/Authorize</button>
+
+                
+        </form>
+
+</div>
+
+
+<script src="/js/jquery-2.1.1.js"></script>
+<script src="/js/bootstrap.js"></script>
+<!--<script src="assets/js/jquery.backstretch.min.js"></script>-->
+<script src="/js/scripts.js"></script>
+</body>
+</html>

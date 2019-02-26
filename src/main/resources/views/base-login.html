@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]>
+<html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>
+<html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>
+<html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>
+<html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>BuzzBuilder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--<link rel="stylesheet" href="css/bootstrap.css"/>-->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/css/style.css"/>
+    <link href="/css/animate.css" rel="stylesheet">
+
+
+    <link rel="shortcut icon" href="/ico/favicon.ico" type="image/x-icon">
+    <!--<link rel="apple-touch-icon" href="${assetPath(src: 'apple-touch-icon.png')}">-->
+    <!--<link rel="apple-touch-icon" sizes="114x114" href="${assetPath(src: 'apple-touch-icon-retina.png')}">-->
+
+    <!--<link href="${resource(dir: 'css', file: 'bootstrap.min.css')}" rel="stylesheet">-->
+    <!--<link href="${resource(dir: 'font-awesome/css', file: 'font-awesome.min.css')}" rel="stylesheet">-->
+
+    <!--<link href="${resource(dir: 'css', file: 'style.css')}" rel="stylesheet">-->
+    <style>
+        .error {
+            color: rgba(253, 0, 40, 0.96);
+        }
+    </style>
+</head>
+
+<body style="background:radial-gradient(at 50% 20%, #F7F7F7 10%, #EFEFF0 50%, #E0E1E2 100%)">
+
+<div class="middle-box text-center loginscreen animated fadeInDown">
+
+    <h1 class="logo-name"><img width="100%" src="/img/backgrounds/logo.png"
+                               th:src="@{/img/backgrounds/logo.png}"/>
+    </h1>
+
+
+    <h3>Welcome to buzzbuilder</h3>
+
+    <div class="content">
+
+        <form class="m-t" role="form" th:action="${loginProcessUrl}" method="post" id='loginForm' autocomplete='off'>
+
+            <div th:if="${param.error}">
+                <div class='alert alert-danger login_message' style="text-align: center;font-weight: bold" th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}">
+                    <button class="close" data-close="alert"></button>
+                    <!--<div th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}"></div>-->
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <input type="text" class="form-control" required autofocus
+                       autocomplete="off" placeholder="Email Address" name='username' id='username'/>
+            </div>
+
+            <div class="form-group">
+                <input type="password" class="form-control" autocomplete="off"
+                       placeholder="Password" required name='password' id='password'/>
+            </div>
+
+            <!--<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>-->
+            <div class="form-actions">
+                <button type="submit"
+                        class="btn btn-primary block full-width m-b">Login
+                </button>
+                <a href="https://app.buzzbuilderpro.com/forgetPassword/index">
+                    <small>Forgot password?</small>
+                </a>
+            </div>
+
+
+        </form>
+    </div>
+
+</div>
+
+<script src="/js/jquery-2.1.1.js"></script>
+<script src="/js/bootstrap.js"></script>
+<!--<script src="assets/js/jquery.backstretch.min.js"></script>-->
+<script src="/js/scripts.js"></script>
+</body>
+</html>
